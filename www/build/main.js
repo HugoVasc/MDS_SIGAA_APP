@@ -43,55 +43,51 @@ webpackEmptyAsyncContext.id = 130;
 var map = {
 	"../pages/cards/cards.module": [
 		328,
-		12
+		26
 	],
 	"../pages/content/content.module": [
 		329,
-		11
+		25
 	],
 	"../pages/item-create/item-create.module": [
 		330,
-		10
+		24
 	],
 	"../pages/item-detail/item-detail.module": [
 		331,
-		9
+		23
 	],
 	"../pages/list-master/list-master.module": [
 		332,
-		8
+		22
 	],
 	"../pages/login/login.module": [
 		333,
-		7
+		21
 	],
 	"../pages/menu/menu.module": [
 		334,
-		6
+		20
 	],
 	"../pages/search/search.module": [
 		335,
-		5
+		19
 	],
 	"../pages/settings/settings.module": [
 		336,
-		4
-	],
-	"../pages/signup/signup.module": [
-		337,
-		3
+		18
 	],
 	"../pages/tabs/tabs.module": [
 		338,
-		2
+		17
 	],
 	"../pages/tutorial/tutorial.module": [
 		339,
-		1
+		16
 	],
 	"../pages/welcome/welcome.module": [
 		340,
-		0
+		15
 	]
 };
 function webpackAsyncContext(req) {
@@ -399,7 +395,6 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'SearchPage', segment: 'search', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
@@ -712,7 +707,7 @@ var MyApp = /** @class */ (function () {
     MyApp.prototype.initTranslate = function () {
         var _this = this;
         // Set the default language for translation strings, and the current language.
-        this.translate.setDefaultLang('en');
+        this.translate.setDefaultLang('pt-br');
         var browserLang = this.translate.getBrowserLang();
         if (browserLang) {
             if (browserLang === 'zh') {
@@ -729,7 +724,7 @@ var MyApp = /** @class */ (function () {
             }
         }
         else {
-            this.translate.use('en'); // Set your language here
+            this.translate.use('pt-br'); // Set your language here
         }
         this.translate.get(['BACK_BUTTON_TEXT']).subscribe(function (values) {
             _this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
