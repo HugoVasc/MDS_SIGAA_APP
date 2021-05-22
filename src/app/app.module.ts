@@ -11,7 +11,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { AlunoProvider } from '../mocks/providers/aluno';
 import { MatriculaProvider } from '../mocks/providers/matricula';
-import { Items } from '../mocks/providers/items';
 import { Settings, User, Api, Global } from '../providers';
 import { MyApp } from './app.component';
 
