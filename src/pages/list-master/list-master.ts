@@ -49,16 +49,16 @@ export class ListMasterPage {
   /**
    * Delete an item from the list of items.
    */
-  deleteItem(item) {
+  /*deleteItem(item) {
     this.items.delete(item);
-  }
+  }*/
 
   /**
    * Navigate to the detail page for this item.
    */
-  openItem(item: Item) {
+  /*openItem(item: Item) {
     this.navCtrl.push('ItemDetailPage', {
       item: item
     });
-  }
+  }*/
 }
