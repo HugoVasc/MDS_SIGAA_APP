@@ -10,7 +10,7 @@ import { Aluno } from '../../models/aluno';
 @Injectable()
 export class Global {
   periodoLetivo = {      // Período letivo para o qual a matrícula será processada
-    numero: 1,
+    numero: 2,
     ano: 2020
   };
 

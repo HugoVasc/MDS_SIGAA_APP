@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 
 import { User } from '../../providers';
+import { AlunoProvider } from '../../providers';
 import { MainPage } from '../';
 
 @IonicPage()
@@ -14,8 +15,8 @@ export class LoginPage {
   // The account fields for the login form.
   // If you're using the username field with or without email, make
   // sure to add it to the type
-  account: { email: string, password: string } = {
-    email: '180123456',
+  account: { username: string, password: string } = {
+    username: '180012345',
     password: 'test'
   };
 
@@ -23,7 +24,7 @@ export class LoginPage {
   private loginErrorString: string;
 
   constructor(public navCtrl: NavController,
-    public user: User,
+    public alunoProvider: AlunoProvider,
     public toastCtrl: ToastController,
     public translateService: TranslateService) {
 
@@ -34,6 +35,10 @@ export class LoginPage {
 
   // Attempt to login in through our User service
   doLogin() {
+    var aluno = this.alunoProvider.get(this.account.username);
+    console.log(aluno);
+    this.navCtrl.push(MainPage);
+    /*
     this.user.login(this.account).subscribe((resp) => {
       this.navCtrl.push(MainPage);
     }, (err) => {
@@ -45,6 +50,6 @@ export class LoginPage {
         position: 'top'
       });
       toast.present();
-    });
+    });*/
   }
 }

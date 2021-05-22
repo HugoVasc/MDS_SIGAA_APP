@@ -1,19 +1,29 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import { Aluno } from '../../models/aluno';
 
 import { Item } from '../../models/item';
-import { Items } from '../../providers';
-
+import { MatriculaAluno } from '../../models/matriculaAluno';
+import { AlunoProvider } from '../../providers';
+import { MatriculaProvider } from '../../providers';
 @IonicPage()
 @Component({
   selector: 'page-list-master',
   templateUrl: 'list-master.html'
 })
 export class ListMasterPage {
-  currentItems: Item[];
+  currentMatriculasAluno: MatriculaAluno[];
+  currentAluno: Aluno;
 
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
-    this.currentItems = this.items.query();
+  constructor(public navCtrl: NavController, 
+    public alunoProvider: AlunoProvider,
+    public matriculaProvider: MatriculaProvider,
+    public modalCtrl: ModalController
+    ){
+      this.matriculaProvider.setMatriculaInicio();
+    this.currentMatriculasAluno = this.matriculaProvider.search();
+    this.currentAluno = this.alunoProvider.get();
+    console.log(this.currentMatriculasAluno)
   }
 
   /**
