@@ -51,7 +51,6 @@ var ItemDetailPageModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers__ = __webpack_require__(55);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,19 +62,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var ItemDetailPage = /** @class */ (function () {
-    function ItemDetailPage(navCtrl, navParams, items) {
+    function ItemDetailPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
-        this.item = navParams.get('item') || items.defaultItem;
+        this.matricula = navParams.get('matricula');
     }
     ItemDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-item-detail',template:/*ion-inline-start:"D:\GitHub\sigaa\src\pages\item-detail\item-detail.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ item.name }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <div class="item-profile" text-center #profilePic [style.background-image]="\'url(\' + item.profilePic + \')\'">\n  </div>\n\n  <div class="item-detail" padding>\n    <h2>{{item.name}}</h2>\n    <p>{{item.about}}</p>\n  </div>\n</ion-content>'/*ion-inline-end:"D:\GitHub\sigaa\src\pages\item-detail\item-detail.html"*/
+            selector: 'page-item-detail',template:/*ion-inline-start:"D:\GitHub\sigaa\src\pages\item-detail\item-detail.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ matricula.turma.disciplina.codigo }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <div class="item-detail" padding>\n    <h2>{{matricula.turma.disciplina.codigo + \'-\' + matricula.turma.disciplina.nome + \'-\' + matricula.turma.codigo}}</h2>\n    <p>{{\'Professor: \' + matricula.turma.professores[0].nome}}</p>\n    <p>{{matricula.turma.horariosAula[0].dia + \' : \' + matricula.turma.horariosAula[0].hora}}</p>\n    <p>{{matricula.turma.horariosAula[1].dia + \' : \' + matricula.turma.horariosAula[1].hora}}</p>\n    <p>{{\'Status: \' + matricula.status}}</p>\n  </div>\n</ion-content>\n\n<ion-footer>\n  <button ion-button color="danger" (click)="deleteItem(matricula)">{{\'DELETE_BUTTON\' | translate}}</button>\n</ion-footer>'/*ion-inline-end:"D:\GitHub\sigaa\src\pages\item-detail\item-detail.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers__["d" /* Items */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object])
     ], ItemDetailPage);
     return ItemDetailPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=item-detail.js.map

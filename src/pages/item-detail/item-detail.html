@@ -1,18 +1,22 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ item.name }}</ion-title>
+    <ion-title>{{ matricula.turma.disciplina.codigo }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
-  </div>
-
   <div class="item-detail" padding>
-    <h2>{{item.name}}</h2>
-    <p>{{item.about}}</p>
+    <h2>{{matricula.turma.disciplina.codigo + '-' + matricula.turma.disciplina.nome + '-' + matricula.turma.codigo}}</h2>
+    <p>{{'Professor: ' + matricula.turma.professores[0].nome}}</p>
+    <p>{{matricula.turma.horariosAula[0].dia + ' : ' + matricula.turma.horariosAula[0].hora}}</p>
+    <p>{{matricula.turma.horariosAula[1].dia + ' : ' + matricula.turma.horariosAula[1].hora}}</p>
+    <p>{{'Status: ' + matricula.status}}</p>
   </div>
 </ion-content>
+
+<ion-footer>
+  <button ion-button color="danger" (click)="deleteItem(matricula)">{{'DELETE_BUTTON' | translate}}</button>
+</ion-footer>

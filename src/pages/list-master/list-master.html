@@ -25,7 +25,7 @@
   <ion-list>
     <ion-item-sliding *ngFor="let matricula of currentMatriculasAluno">
       <button ion-item (click)="openItem(matricula)">
-        <h2>{{matricula.turma.disciplina.nome}}</h2>
+        <h2>{{matricula.turma.disciplina.codigo + '-' + matricula.turma.disciplina.nome + '-' + matricula.turma.codigo}}</h2>
         <p>{{matricula.status}}</p>
       </button>
 
