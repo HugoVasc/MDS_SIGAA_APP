@@ -5,7 +5,7 @@ import { Aluno } from '../../models/aluno';
 import { Item } from '../../models/item';
 import { MatriculaAluno } from '../../models/matriculaAluno';
 import { AlunoProvider } from '../../providers';
-import { MatriculaProvider } from '../../providers';
+import { MatriculaProvider } from '../../mocks/providers/matricula';
 @IonicPage()
 @Component({
   selector: 'page-list-master',

@@ -7,8 +7,11 @@
  * The Items service manages creating instances of Item, so go ahead and rename
  * that something that fits your app as well.
  */
+import { Turma } from "./turma";
 export class MatriculaAluno {
-
+  status: String;
+  prioridade: String;
+  turma: Turma;
   constructor(fields: any) {
     // Quick and dirty extend/assign fields to this model
     for (const f in fields) {

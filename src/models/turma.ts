@@ -1,3 +1,5 @@
+import { Disciplina } from "./disciplina";
+
 /**
  * A generic model that our Master-Detail pages list, create, and delete.
  *
@@ -8,7 +10,17 @@
  * that something that fits your app as well.
  */
 export class Turma {
-
+  codigo: CharacterData;
+  vagas: Number;
+  alunosMatriculados: Number;
+  horariosAula: [{
+    dia: String;
+    hora: String;
+  }];
+  professores: [{
+    nome: String;
+  }];
+  disciplina: Disciplina;
   constructor(fields: any) {
     // Quick and dirty extend/assign fields to this model
     for (const f in fields) {

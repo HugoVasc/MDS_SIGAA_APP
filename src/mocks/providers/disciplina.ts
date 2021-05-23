@@ -5,7 +5,7 @@ import { Disciplina } from '../../models/disciplina';
 @Injectable()
 export class DisciplinaProvider {
   disciplinas: Disciplina[] = [];
-
+  
   constructor() {
     let disciplinas = [ {
         "codigo" : "ENE0026",

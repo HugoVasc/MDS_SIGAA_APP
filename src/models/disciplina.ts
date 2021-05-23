@@ -1,5 +1,3 @@
-import { Turma } from "./turma";
-
 /**
  * A generic model that our Master-Detail pages list, create, and delete.
  *
@@ -9,11 +7,13 @@ import { Turma } from "./turma";
  * The Items service manages creating instances of Item, so go ahead and rename
  * that something that fits your app as well.
  */
-export class Matricula {
-  turma: Turma;
-  status: String;
-  prioridade: String;
+export class Disciplina {
+  codigo: String;
+  nome: String;
+  cargaHorariaTotal: Number;
+  unidadeAcademica: String;
   constructor(fields: any) {
+    // Quick and dirty extend/assign fields to this model
     for (const f in fields) {
       // @ts-ignore
       this[f] = fields[f];
