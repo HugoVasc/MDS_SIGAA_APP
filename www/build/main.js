@@ -1,261 +1,6 @@
 webpackJsonp([12],{
 
-/***/ 130:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 130;
-
-/***/ }),
-
-/***/ 182:
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"../pages/cards/cards.module": [
-		334,
-		11
-	],
-	"../pages/content/content.module": [
-		335,
-		10
-	],
-	"../pages/item-create/item-create.module": [
-		336,
-		9
-	],
-	"../pages/item-detail/item-detail.module": [
-		337,
-		8
-	],
-	"../pages/list-master/list-master.module": [
-		338,
-		7
-	],
-	"../pages/login/login.module": [
-		339,
-		6
-	],
-	"../pages/menu/menu.module": [
-		340,
-		5
-	],
-	"../pages/search/search.module": [
-		341,
-		4
-	],
-	"../pages/settings/settings.module": [
-		342,
-		3
-	],
-	"../pages/tabs/tabs.module": [
-		343,
-		2
-	],
-	"../pages/tutorial/tutorial.module": [
-		344,
-		1
-	],
-	"../pages/welcome/welcome.module": [
-		345,
-		0
-	]
-};
-function webpackAsyncContext(req) {
-	var ids = map[req];
-	if(!ids)
-		return Promise.reject(new Error("Cannot find module '" + req + "'."));
-	return __webpack_require__.e(ids[1]).then(function() {
-		return __webpack_require__(ids[0]);
-	});
-};
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = 182;
-module.exports = webpackAsyncContext;
-
-/***/ }),
-
-/***/ 183:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Api; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Api is a generic REST Api handler. Set your API url first.
- */
-var Api = /** @class */ (function () {
-    function Api(http) {
-        this.http = http;
-        this.url = 'https://example.com/api/v1';
-    }
-    Api.prototype.get = function (endpoint, params, reqOpts) {
-        if (!reqOpts) {
-            reqOpts = {
-                params: new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]()
-            };
-        }
-        // Support easy query params for GET requests
-        if (params) {
-            reqOpts.params = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]();
-            for (var k in params) {
-                reqOpts.params = reqOpts.params.set(k, params[k]);
-            }
-        }
-        return this.http.get(this.url + '/' + endpoint, reqOpts);
-    };
-    Api.prototype.post = function (endpoint, body, reqOpts) {
-        return this.http.post(this.url + '/' + endpoint, body, reqOpts);
-    };
-    Api.prototype.put = function (endpoint, body, reqOpts) {
-        return this.http.put(this.url + '/' + endpoint, body, reqOpts);
-    };
-    Api.prototype.delete = function (endpoint, reqOpts) {
-        return this.http.delete(this.url + '/' + endpoint, reqOpts);
-    };
-    Api.prototype.patch = function (endpoint, body, reqOpts) {
-        return this.http.patch(this.url + '/' + endpoint, body, reqOpts);
-    };
-    Api = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
-    ], Api);
-    return Api;
-}());
-
-//# sourceMappingURL=api.js.map
-
-/***/ }),
-
-/***/ 184:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AlunoProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_aluno__ = __webpack_require__(313);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var AlunoProvider = /** @class */ (function () {
-    function AlunoProvider() {
-        this.alunos = [];
-        this.aluno = undefined;
-        var alunos = [{
-                "matricula": "180012345",
-                "nome": "DANIEL AKIRA ANDO"
-            }, {
-                "matricula": "180032435",
-                "nome": "VICTOR HUGO DE SOUSA"
-            }, {
-                "matricula": "180049548",
-                "nome": "RAYAN JHONNYE ALVES ALEXANDRINO"
-            }, {
-                "matricula": "180039283",
-                "nome": "JADE MARTINS ARANTES"
-            }, {
-                "matricula": "180059459",
-                "nome": "ALINE DOS SANTOS PEREIRA"
-            }, {
-                "matricula": "190003434",
-                "nome": "VINICIUS ALVES DE OLIVEIRA"
-            }, {
-                "matricula": "190002912",
-                "nome": "MAIRA LEITE CONCEICAO"
-            }, {
-                "matricula": "190003939",
-                "nome": "VICTOR NUNES GOMES"
-            }, {
-                "matricula": "190029293",
-                "nome": "VITOR DE AGUIAR CARAZZA"
-            }];
-        for (var _i = 0, alunos_1 = alunos; _i < alunos_1.length; _i++) {
-            var aluno = alunos_1[_i];
-            this.alunos.push(new __WEBPACK_IMPORTED_MODULE_1__models_aluno__["a" /* Aluno */](aluno));
-        }
-    }
-    AlunoProvider.prototype.get = function (matricula) {
-        if (!matricula)
-            return this.aluno;
-        for (var _i = 0, _a = this.alunos; _i < _a.length; _i++) {
-            var aluno = _a[_i];
-            if (aluno.matricula == matricula) {
-                aluno.profilePic = "assets/img/speakers/bear.jpg";
-                this.aluno = aluno;
-                return aluno;
-            }
-        }
-        return undefined;
-    };
-    AlunoProvider.prototype.search = function (params) {
-        if (!params) {
-            return this.alunos;
-        }
-        return this.alunos.filter(function (aluno) {
-            for (var key in params) {
-                var field = aluno[key];
-                if (typeof field == 'string' && field.toLowerCase().indexOf(params[key].toLowerCase()) >= 0) {
-                    aluno.profilePic = "assets/img/speakers/bear.jpg";
-                    return aluno;
-                }
-                else if (field == params[key]) {
-                    aluno.profilePic = "assets/img/speakers/bear.jpg";
-                    return aluno;
-                }
-            }
-            return null;
-        });
-    };
-    AlunoProvider.prototype.set = function (aluno) {
-        this.aluno = aluno;
-        this.aluno.profilePic = "assets/img/speakers/bear.jpg";
-    };
-    AlunoProvider.prototype.reset = function () {
-        this.aluno = undefined;
-    };
-    AlunoProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
-    ], AlunoProvider);
-    return AlunoProvider;
-}());
-
-//# sourceMappingURL=aluno.js.map
-
-/***/ }),
-
-/***/ 185:
+/***/ 119:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -840,6 +585,261 @@ var MatriculaProvider = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 131:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 131;
+
+/***/ }),
+
+/***/ 183:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/cards/cards.module": [
+		334,
+		11
+	],
+	"../pages/content/content.module": [
+		335,
+		10
+	],
+	"../pages/item-create/item-create.module": [
+		336,
+		9
+	],
+	"../pages/item-detail/item-detail.module": [
+		337,
+		8
+	],
+	"../pages/list-master/list-master.module": [
+		338,
+		7
+	],
+	"../pages/login/login.module": [
+		340,
+		6
+	],
+	"../pages/menu/menu.module": [
+		339,
+		5
+	],
+	"../pages/search/search.module": [
+		341,
+		4
+	],
+	"../pages/settings/settings.module": [
+		342,
+		3
+	],
+	"../pages/tabs/tabs.module": [
+		343,
+		2
+	],
+	"../pages/tutorial/tutorial.module": [
+		344,
+		1
+	],
+	"../pages/welcome/welcome.module": [
+		345,
+		0
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 183;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 184:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Api; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Api is a generic REST Api handler. Set your API url first.
+ */
+var Api = /** @class */ (function () {
+    function Api(http) {
+        this.http = http;
+        this.url = 'https://example.com/api/v1';
+    }
+    Api.prototype.get = function (endpoint, params, reqOpts) {
+        if (!reqOpts) {
+            reqOpts = {
+                params: new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]()
+            };
+        }
+        // Support easy query params for GET requests
+        if (params) {
+            reqOpts.params = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]();
+            for (var k in params) {
+                reqOpts.params = reqOpts.params.set(k, params[k]);
+            }
+        }
+        return this.http.get(this.url + '/' + endpoint, reqOpts);
+    };
+    Api.prototype.post = function (endpoint, body, reqOpts) {
+        return this.http.post(this.url + '/' + endpoint, body, reqOpts);
+    };
+    Api.prototype.put = function (endpoint, body, reqOpts) {
+        return this.http.put(this.url + '/' + endpoint, body, reqOpts);
+    };
+    Api.prototype.delete = function (endpoint, reqOpts) {
+        return this.http.delete(this.url + '/' + endpoint, reqOpts);
+    };
+    Api.prototype.patch = function (endpoint, body, reqOpts) {
+        return this.http.patch(this.url + '/' + endpoint, body, reqOpts);
+    };
+    Api = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], Api);
+    return Api;
+}());
+
+//# sourceMappingURL=api.js.map
+
+/***/ }),
+
+/***/ 185:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AlunoProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_aluno__ = __webpack_require__(313);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AlunoProvider = /** @class */ (function () {
+    function AlunoProvider() {
+        this.alunos = [];
+        this.aluno = undefined;
+        var alunos = [{
+                "matricula": "180012345",
+                "nome": "DANIEL AKIRA ANDO"
+            }, {
+                "matricula": "180032435",
+                "nome": "VICTOR HUGO DE SOUSA"
+            }, {
+                "matricula": "180049548",
+                "nome": "RAYAN JHONNYE ALVES ALEXANDRINO"
+            }, {
+                "matricula": "180039283",
+                "nome": "JADE MARTINS ARANTES"
+            }, {
+                "matricula": "180059459",
+                "nome": "ALINE DOS SANTOS PEREIRA"
+            }, {
+                "matricula": "190003434",
+                "nome": "VINICIUS ALVES DE OLIVEIRA"
+            }, {
+                "matricula": "190002912",
+                "nome": "MAIRA LEITE CONCEICAO"
+            }, {
+                "matricula": "190003939",
+                "nome": "VICTOR NUNES GOMES"
+            }, {
+                "matricula": "190029293",
+                "nome": "VITOR DE AGUIAR CARAZZA"
+            }];
+        for (var _i = 0, alunos_1 = alunos; _i < alunos_1.length; _i++) {
+            var aluno = alunos_1[_i];
+            this.alunos.push(new __WEBPACK_IMPORTED_MODULE_1__models_aluno__["a" /* Aluno */](aluno));
+        }
+    }
+    AlunoProvider.prototype.get = function (matricula) {
+        if (!matricula)
+            return this.aluno;
+        for (var _i = 0, _a = this.alunos; _i < _a.length; _i++) {
+            var aluno = _a[_i];
+            if (aluno.matricula == matricula) {
+                aluno.profilePic = "assets/img/speakers/bear.jpg";
+                this.aluno = aluno;
+                return aluno;
+            }
+        }
+        return undefined;
+    };
+    AlunoProvider.prototype.search = function (params) {
+        if (!params) {
+            return this.alunos;
+        }
+        return this.alunos.filter(function (aluno) {
+            for (var key in params) {
+                var field = aluno[key];
+                if (typeof field == 'string' && field.toLowerCase().indexOf(params[key].toLowerCase()) >= 0) {
+                    aluno.profilePic = "assets/img/speakers/bear.jpg";
+                    return aluno;
+                }
+                else if (field == params[key]) {
+                    aluno.profilePic = "assets/img/speakers/bear.jpg";
+                    return aluno;
+                }
+            }
+            return null;
+        });
+    };
+    AlunoProvider.prototype.set = function (aluno) {
+        this.aluno = aluno;
+        this.aluno.profilePic = "assets/img/speakers/bear.jpg";
+    };
+    AlunoProvider.prototype.reset = function () {
+        this.aluno = undefined;
+    };
+    AlunoProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], AlunoProvider);
+    return AlunoProvider;
+}());
+
+//# sourceMappingURL=aluno.js.map
+
+/***/ }),
+
 /***/ 225:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -883,18 +883,18 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* unused harmony export createTranslateLoader */
 /* unused harmony export provideSettings */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(133);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(134);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(136);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_http_loader__ = __webpack_require__(283);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ionic_angular__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mocks_providers_aluno__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__mocks_providers_matricula__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mocks_providers_aluno__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__mocks_providers_matricula__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__app_component__ = __webpack_require__(333);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -961,8 +961,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/item-create/item-create.module#ItemCreatePageModule', name: 'ItemCreatePage', segment: 'item-create', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-detail/item-detail.module#ItemDetailPageModule', name: 'ItemDetailPage', segment: 'item-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'SearchPage', segment: 'search', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
@@ -1135,7 +1135,7 @@ var Item = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Settings; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(136);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1226,7 +1226,7 @@ var Settings = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_toPromise__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(184);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1502,8 +1502,8 @@ var MatriculaHistorico = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_splash_screen__ = __webpack_require__(133);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_splash_screen__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(135);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages__ = __webpack_require__(225);
@@ -1605,7 +1605,7 @@ var MyApp = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_api__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_api__ = __webpack_require__(184);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__api_api__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mocks_providers_items__ = __webpack_require__(307);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_1__mocks_providers_items__["a"]; });
@@ -1615,9 +1615,9 @@ var MyApp = /** @class */ (function () {
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_3__user_user__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__global_global__ = __webpack_require__(312);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_4__global_global__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mocks_providers_aluno__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mocks_providers_aluno__ = __webpack_require__(185);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__mocks_providers_aluno__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mocks_providers_matricula__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mocks_providers_matricula__ = __webpack_require__(119);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_6__mocks_providers_matricula__["a"]; });
 
 

@@ -11,9 +11,16 @@ import { MatriculaProvider } from '../../mocks/providers/matricula';
 export class ItemDetailPage {
   matricula: MatriculaAluno;
 
-  constructor(public navCtrl: NavController,
+  constructor(
+    public navCtrl: NavController,
+    public matriculaProvider: MatriculaProvider,
     navParams: NavParams ){
     this.matricula = navParams.get('matricula');
+  }
+
+  alterarStatus(status: string){
+    this.matriculaProvider.updateStatus(this.matricula, status)
+    this.navCtrl.pop();
   }
 
 }

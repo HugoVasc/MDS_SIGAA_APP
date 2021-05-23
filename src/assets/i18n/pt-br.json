@@ -10,7 +10,7 @@
 
   "TAB1_TITLE": "Matrícula",
   "TAB2_TITLE": "Busca",
-  "TAB3_TITLE": "Configurações",
+  "TAB3_TITLE": "Histórico",
 
   "MAP_TITLE": "Mapa",
 
@@ -60,6 +60,8 @@
   "DONE_BUTTON": "Confirmar",
   "CANCEL_BUTTON": "Cancelar",
   "DELETE_BUTTON": "Retirar",
+  "CONFIRM_BUTTON": "Confirmar",
+  "CONFIRM_REGISTRATION_BUTTON": "Confirmar",
 
   "CARDS_TITLE": "Social",
 

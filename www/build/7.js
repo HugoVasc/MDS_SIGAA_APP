@@ -82,25 +82,6 @@ var ListMasterPage = /** @class */ (function () {
     ListMasterPage.prototype.ionViewDidLoad = function () {
     };
     /**
-     * Prompt the user to add a new item. This shows our ItemCreatePage in a
-     * modal and then adds the new item to our data source if the user created one.
-     */
-    /*addItem() {
-      let addModal = this.modalCtrl.create('ItemCreatePage');
-      addModal.onDidDismiss(item => {
-        if (item) {
-          this.items.add(item);
-        }
-      })
-      addModal.present();
-    }*/
-    /**
-     * Delete an item from the list of items.
-     */
-    /*deleteItem(item) {
-      this.items.delete(item);
-    }*/
-    /**
      * Navigate to the detail page for this item.
      */
     ListMasterPage.prototype.openItem = function (matricula) {
@@ -108,16 +89,17 @@ var ListMasterPage = /** @class */ (function () {
             matricula: matricula
         });
     };
+    ListMasterPage.prototype.confirmarMatricula = function () {
+        this.matriculaProvider.confirmarMatricula();
+    };
     ListMasterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list-master',template:/*ion-inline-start:"D:\GitHub\sigaa\src\pages\list-master\list-master.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ \'LIST_MASTER_TITLE\' | translate }}</ion-title>\n\n    <ion-buttons end>\n      <button ion-button icon-only (click)="addItem()">\n        <ion-icon name="add"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <button ion-item>\n    <ion-avatar item-start>\n      <img [src]="currentAluno.profilePic" />\n    </ion-avatar>\n    <h2>{{currentAluno.nome}}</h2>\n    <p>{{currentAluno.matricula}}</p>\n  </button>\n\n  <ion-list>\n    <ion-item-sliding *ngFor="let matricula of currentMatriculasAluno">\n      <button ion-item (click)="openItem(matricula)">\n        <h2>{{matricula.turma.disciplina.codigo + \'-\' + matricula.turma.disciplina.nome + \'-\' + matricula.turma.codigo}}</h2>\n        <p>{{matricula.status}}</p>\n      </button>\n\n      <ion-item-options>\n        <button ion-button color="danger" (click)="deleteItem(item)">\n          {{ \'DELETE_BUTTON\' | translate }}\n        </button>\n      </ion-item-options>\n    </ion-item-sliding>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"D:\GitHub\sigaa\src\pages\list-master\list-master.html"*/
+            selector: 'page-list-master',template:/*ion-inline-start:"D:\GitHub\sigaa\src\pages\list-master\list-master.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ \'LIST_MASTER_TITLE\' | translate }}</ion-title>\n\n    <ion-buttons end>\n      <button ion-button icon-only (click)="addItem()">\n        <ion-icon name="add"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <button ion-item>\n    <ion-avatar item-start>\n      <img [src]="currentAluno.profilePic" />\n    </ion-avatar>\n    <h2>{{currentAluno.nome}}</h2>\n    <p>{{currentAluno.matricula}}</p>\n  </button>\n\n  <ion-list>\n    <ion-item-sliding *ngFor="let matricula of currentMatriculasAluno">\n      <button ion-item (click)="openItem(matricula)">\n        <h2>{{matricula.turma.disciplina.codigo + \'-\' + matricula.turma.disciplina.nome + \'-\' + matricula.turma.codigo}}</h2>\n        <p>{{matricula.status}}</p>\n      </button>\n\n      <ion-item-options>\n        <button ion-button color="danger" (click)="deleteItem(item)">\n          {{ \'DELETE_BUTTON\' | translate }}\n        </button>\n      </ion-item-options>\n    </ion-item-sliding>\n  </ion-list>\n</ion-content>\n\n<ion-footer>\n  <button ion-button icon-left color="default" (click)="confirmarMatricula()">\n    <ion-icon name="checkmark-circle"></ion-icon>\n    {{\'CONFIRM_REGISTRATION_BUTTON\' | translate}}\n  </button>\n</ion-footer>'/*ion-inline-end:"D:\GitHub\sigaa\src\pages\list-master\list-master.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers__["a" /* AlunoProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__providers__["e" /* MatriculaProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers__["a" /* AlunoProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers__["a" /* AlunoProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers__["e" /* MatriculaProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers__["e" /* MatriculaProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _d || Object])
     ], ListMasterPage);
     return ListMasterPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=list-master.js.map

@@ -18,5 +18,12 @@
 </ion-content>
 
 <ion-footer>
-  <button ion-button color="danger" (click)="deleteItem(matricula)">{{'DELETE_BUTTON' | translate}}</button>
+  <button *ngIf="(matricula.status == 'PreMatricula' || matricula.status == 'Confirmado')" ion-button icon-left color="danger" (click)="alterarStatus('Retirado')">
+    <ion-icon name="close-circle"></ion-icon>
+    {{'DELETE_BUTTON' | translate}}
+  </button>
+  <button *ngIf="(matricula.status == 'PreMatricula' || matricula.status == 'Retirado')" ion-button icon-left color="secondary" (click)="alterarStatus('Confirmado')">
+    <ion-icon name="checkmark-circle"></ion-icon>
+    {{'CONFIRM_BUTTON' | translate}}
+  </button>
 </ion-footer>
