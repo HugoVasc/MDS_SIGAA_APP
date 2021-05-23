@@ -1,15 +1,15 @@
 webpackJsonp([8],{
 
-/***/ 337:
+/***/ 345:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ItemDetailPageModule", function() { return ItemDetailPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__item_detail__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login__ = __webpack_require__(357);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,38 +20,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ItemDetailPageModule = /** @class */ (function () {
-    function ItemDetailPageModule() {
+var LoginPageModule = /** @class */ (function () {
+    function LoginPageModule() {
     }
-    ItemDetailPageModule = __decorate([
+    LoginPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__item_detail__["a" /* ItemDetailPage */],
+                __WEBPACK_IMPORTED_MODULE_3__login__["a" /* LoginPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__item_detail__["a" /* ItemDetailPage */]),
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__login__["a" /* LoginPage */]),
                 __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_3__item_detail__["a" /* ItemDetailPage */]
+                __WEBPACK_IMPORTED_MODULE_3__login__["a" /* LoginPage */]
             ]
         })
-    ], ItemDetailPageModule);
-    return ItemDetailPageModule;
+    ], LoginPageModule);
+    return LoginPageModule;
 }());
 
-//# sourceMappingURL=item-detail.module.js.map
+//# sourceMappingURL=login.module.js.map
 
 /***/ }),
 
-/***/ 349:
+/***/ 357:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemDetailPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mocks_providers_matricula__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4____ = __webpack_require__(225);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,28 +66,58 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ItemDetailPage = /** @class */ (function () {
-    function ItemDetailPage(navCtrl, matriculaProvider, navParams) {
+
+
+var LoginPage = /** @class */ (function () {
+    function LoginPage(navCtrl, alunoProvider, toastCtrl, translateService) {
+        var _this = this;
         this.navCtrl = navCtrl;
-        this.matriculaProvider = matriculaProvider;
-        this.matricula = navParams.get('matricula');
+        this.alunoProvider = alunoProvider;
+        this.toastCtrl = toastCtrl;
+        this.translateService = translateService;
+        // The account fields for the login form.
+        // If you're using the username field with or without email, make
+        // sure to add it to the type
+        this.account = {
+            username: '180012345',
+            password: 'test'
+        };
+        this.translateService.get('LOGIN_ERROR').subscribe(function (value) {
+            _this.loginErrorString = value;
+        });
     }
-    ItemDetailPage.prototype.alterarStatus = function (status) {
-        this.matriculaProvider.updateStatus(this.matricula, status);
-        this.navCtrl.pop();
+    // Attempt to login in through our User service
+    LoginPage.prototype.doLogin = function () {
+        var aluno = this.alunoProvider.get(this.account.username);
+        console.log(aluno);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4____["b" /* MainPage */]);
+        /*
+        this.user.login(this.account).subscribe((resp) => {
+          this.navCtrl.push(MainPage);
+        }, (err) => {
+          this.navCtrl.push(MainPage);
+          // Unable to log in
+          let toast = this.toastCtrl.create({
+            message: this.loginErrorString,
+            duration: 3000,
+            position: 'top'
+          });
+          toast.present();
+        });*/
     };
-    ItemDetailPage = __decorate([
+    LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-item-detail',template:/*ion-inline-start:"D:\GitHub\sigaa\src\pages\item-detail\item-detail.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ matricula.turma.disciplina.codigo }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <div class="item-detail" padding>\n    <h2>{{matricula.turma.disciplina.codigo + \'-\' + matricula.turma.disciplina.nome + \'-\' + matricula.turma.codigo}}</h2>\n    <p>{{\'Professor: \' + matricula.turma.professores[0].nome}}</p>\n    <p>{{matricula.turma.horariosAula[0].dia + \' : \' + matricula.turma.horariosAula[0].hora}}</p>\n    <p>{{matricula.turma.horariosAula[1].dia + \' : \' + matricula.turma.horariosAula[1].hora}}</p>\n    <p>{{\'Status: \' + matricula.status}}</p>\n  </div>\n</ion-content>\n\n<ion-footer>\n  <button *ngIf="(matricula.status == \'PreMatricula\' || matricula.status == \'Confirmado\')" ion-button icon-left color="danger" (click)="alterarStatus(\'Retirado\')">\n    <ion-icon name="close-circle"></ion-icon>\n    {{\'DELETE_BUTTON\' | translate}}\n  </button>\n  <button *ngIf="(matricula.status == \'PreMatricula\' || matricula.status == \'Retirado\')" ion-button icon-left color="secondary" (click)="alterarStatus(\'Confirmado\')">\n    <ion-icon name="checkmark-circle"></ion-icon>\n    {{\'CONFIRM_BUTTON\' | translate}}\n  </button>\n</ion-footer>'/*ion-inline-end:"D:\GitHub\sigaa\src\pages\item-detail\item-detail.html"*/
+            selector: 'page-login',template:/*ion-inline-start:"E:\GitHub\sigaa\src\pages\login\login.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ \'LOGIN_TITLE\' | translate }}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <form (submit)="doLogin()">\n\n    <ion-list>\n\n\n\n      <ion-item>\n\n        <ion-label fixed>{{ \'USERNAME\' | translate }}</ion-label>\n\n        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>\n\n      </ion-item>\n\n\n\n      <!--\n\n      Want to use a Username instead of an Email? Here you go:\n\n\n\n      <ion-item>\n\n        <ion-label floating>{{ \'USERNAME\' | translate }}</ion-label>\n\n        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>\n\n      </ion-item>\n\n      -->\n\n\n\n      <ion-item>\n\n        <ion-label fixed>{{ \'PASSWORD\' | translate }}</ion-label>\n\n        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>\n\n      </ion-item>\n\n\n\n      <div padding>\n\n        <button ion-button color="primary" block>{{ \'LOGIN_BUTTON\' | translate }}</button>\n\n      </div>\n\n\n\n    </ion-list>\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\GitHub\sigaa\src\pages\login\login.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__mocks_providers_matricula__["a" /* MatriculaProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], ItemDetailPage);
-    return ItemDetailPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers__["a" /* AlunoProvider */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["l" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]])
+    ], LoginPage);
+    return LoginPage;
 }());
 
-//# sourceMappingURL=item-detail.js.map
+//# sourceMappingURL=login.js.map
 
 /***/ })
 

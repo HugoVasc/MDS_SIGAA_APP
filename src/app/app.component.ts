@@ -41,6 +41,7 @@ export class MyApp {
     { title: 'Signup', component: 'SignupPage' },
     { title: 'Master Detail', component: 'ListMasterPage' },
     { title: 'Menu', component: 'MenuPage' },
+    { title: 'HistoricoMatricula', component: 'HistoricoMatriculaPage' },
     { title: 'Settings', component: 'SettingsPage' },
     { title: 'Search', component: 'SearchPage' }
   ]

@@ -17,7 +17,7 @@
   </div>
 </ion-content>
 
-<ion-footer>
+<ion-footer padding>
   <button *ngIf="(matricula.status == 'PreMatricula' || matricula.status == 'Confirmado')" ion-button icon-left color="danger" (click)="alterarStatus('Retirado')">
     <ion-icon name="close-circle"></ion-icon>
     {{'DELETE_BUTTON' | translate}}

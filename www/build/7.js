@@ -1,15 +1,15 @@
 webpackJsonp([7],{
 
-/***/ 338:
+/***/ 360:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListMasterPageModule", function() { return ListMasterPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MatriculaHistoricoPageModule", function() { return MatriculaHistoricoPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__list_master__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__matricula_historico__ = __webpack_require__(361);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,39 +20,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ListMasterPageModule = /** @class */ (function () {
-    function ListMasterPageModule() {
+var MatriculaHistoricoPageModule = /** @class */ (function () {
+    function MatriculaHistoricoPageModule() {
     }
-    ListMasterPageModule = __decorate([
+    MatriculaHistoricoPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__list_master__["a" /* ListMasterPage */],
+                __WEBPACK_IMPORTED_MODULE_3__matricula_historico__["a" /* MatriculaHistoricoPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__list_master__["a" /* ListMasterPage */]),
-                __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["b" /* TranslateModule */].forChild()
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__matricula_historico__["a" /* MatriculaHistoricoPage */]),
+                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_3__list_master__["a" /* ListMasterPage */]
-            ]
         })
-    ], ListMasterPageModule);
-    return ListMasterPageModule;
+    ], MatriculaHistoricoPageModule);
+    return MatriculaHistoricoPageModule;
 }());
 
-//# sourceMappingURL=list-master.module.js.map
+//# sourceMappingURL=matricula-historico.module.js.map
 
 /***/ }),
 
-/***/ 350:
+/***/ 361:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListMasterPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MatriculaHistoricoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mocks_providers_matricula__ = __webpack_require__(224);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,48 +59,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-var ListMasterPage = /** @class */ (function () {
-    function ListMasterPage(navCtrl, alunoProvider, matriculaProvider, modalCtrl) {
+/**
+ * Generated class for the MatriculaHistoricoPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var MatriculaHistoricoPage = /** @class */ (function () {
+    function MatriculaHistoricoPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
-        this.alunoProvider = alunoProvider;
-        this.matriculaProvider = matriculaProvider;
-        this.modalCtrl = modalCtrl;
-        this.matriculaProvider.setMatriculaInicio();
-        this.currentMatriculasAluno = this.matriculaProvider.search();
-        this.currentAluno = this.alunoProvider.get();
-        console.log(this.currentMatriculasAluno);
+        this.navParams = navParams;
     }
-    /**
-     * The view loaded, let's query our items for the list
-     */
-    ListMasterPage.prototype.ionViewDidLoad = function () {
+    MatriculaHistoricoPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad MatriculaHistoricoPage');
     };
-    /**
-     * Navigate to the detail page for this item.
-     */
-    ListMasterPage.prototype.openItem = function (matricula) {
-        this.navCtrl.push('ItemDetailPage', {
-            matricula: matricula
-        });
-    };
-    ListMasterPage.prototype.confirmarMatricula = function () {
-        this.matriculaProvider.confirmarMatricula();
-    };
-    ListMasterPage = __decorate([
+    MatriculaHistoricoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list-master',template:/*ion-inline-start:"D:\GitHub\sigaa\src\pages\list-master\list-master.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ \'LIST_MASTER_TITLE\' | translate }}</ion-title>\n\n    <ion-buttons end>\n      <button ion-button icon-only (click)="addItem()">\n        <ion-icon name="add"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <button ion-item>\n    <ion-avatar item-start>\n      <img [src]="currentAluno.profilePic" />\n    </ion-avatar>\n    <h2>{{currentAluno.nome}}</h2>\n    <p>{{currentAluno.matricula}}</p>\n  </button>\n\n  <ion-list>\n    <ion-item-sliding *ngFor="let matricula of currentMatriculasAluno">\n      <button ion-item (click)="openItem(matricula)">\n        <h2>{{matricula.turma.disciplina.codigo + \'-\' + matricula.turma.disciplina.nome + \'-\' + matricula.turma.codigo}}</h2>\n        <p>{{matricula.status}}</p>\n      </button>\n\n      <ion-item-options>\n        <button ion-button color="danger" (click)="deleteItem(item)">\n          {{ \'DELETE_BUTTON\' | translate }}\n        </button>\n      </ion-item-options>\n    </ion-item-sliding>\n  </ion-list>\n</ion-content>\n\n<ion-footer>\n  <button ion-button icon-left color="default" (click)="confirmarMatricula()">\n    <ion-icon name="checkmark-circle"></ion-icon>\n    {{\'CONFIRM_REGISTRATION_BUTTON\' | translate}}\n  </button>\n</ion-footer>'/*ion-inline-end:"D:\GitHub\sigaa\src\pages\list-master\list-master.html"*/
+            selector: 'page-matricula-historico',template:/*ion-inline-start:"E:\GitHub\sigaa\src\pages\matricula-historico\matricula-historico.html"*/'<!--\n\n  Generated template for the MatriculaHistoricoPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>{{\'HISTORY_TITLE\' | translate}}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"E:\GitHub\sigaa\src\pages\matricula-historico\matricula-historico.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers__["a" /* AlunoProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__mocks_providers_matricula__["a" /* MatriculaProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
-    ], ListMasterPage);
-    return ListMasterPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], MatriculaHistoricoPage);
+    return MatriculaHistoricoPage;
 }());
 
-//# sourceMappingURL=list-master.js.map
+//# sourceMappingURL=matricula-historico.js.map
 
 /***/ })
 
