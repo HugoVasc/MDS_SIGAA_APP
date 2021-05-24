@@ -9,8 +9,8 @@
  */
 import { Turma } from "./turma";
 export class MatriculaAluno {
-  status: String;
-  prioridade: String;
+  status: any;
+  prioridade: any;
   turma: Turma;
   constructor(fields: any) {
     // Quick and dirty extend/assign fields to this model
@@ -22,6 +22,6 @@ export class MatriculaAluno {
 
 }
 
-export interface Item {
+export interface MatriculaAluno {
   [prop: string]: any;
 }

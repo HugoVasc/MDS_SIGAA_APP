@@ -29,7 +29,7 @@ var ListMasterPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__list_master__["a" /* ListMasterPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__list_master__["a" /* ListMasterPage */]),
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__list_master__["a" /* ListMasterPage */]),
                 __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
             exports: [
@@ -97,10 +97,10 @@ var ListMasterPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-list-master',template:/*ion-inline-start:"E:\GitHub\sigaa\src\pages\list-master\list-master.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ \'LIST_MASTER_TITLE\' | translate }}</ion-title>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="addItem()">\n\n        <ion-icon name="add"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <button ion-item>\n\n    <ion-avatar item-start>\n\n      <img [src]="currentAluno.profilePic" />\n\n    </ion-avatar>\n\n    <h2>{{currentAluno.nome}}</h2>\n\n    <p>{{currentAluno.matricula}}</p>\n\n  </button>\n\n\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let matricula of currentMatriculasAluno">\n\n      <button ion-item (click)="openItem(matricula)">\n\n        <h2>{{matricula.turma.disciplina.codigo + \'-\' + matricula.turma.disciplina.nome + \'-\' + matricula.turma.codigo}}</h2>\n\n        <p>{{matricula.status}}</p>\n\n      </button>\n\n\n\n      <ion-item-options>\n\n        <button ion-button color="danger" (click)="deleteItem(item)">\n\n          {{ \'DELETE_BUTTON\' | translate }}\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n</ion-content>\n\n\n\n<ion-footer>\n\n  <button ion-button icon-left color="default" (click)="confirmarMatricula()">\n\n    <ion-icon name="checkmark-circle"></ion-icon>\n\n    {{\'CONFIRM_REGISTRATION_BUTTON\' | translate}}\n\n  </button>\n\n</ion-footer>'/*ion-inline-end:"E:\GitHub\sigaa\src\pages\list-master\list-master.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers__["a" /* AlunoProvider */],
             __WEBPACK_IMPORTED_MODULE_3__mocks_providers_matricula__["a" /* MatriculaProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
     ], ListMasterPage);
     return ListMasterPage;
 }());

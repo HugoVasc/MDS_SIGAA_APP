@@ -27,7 +27,7 @@ var PagesMatriculaHistoricoPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__pages_matricula_historico__["a" /* PagesMatriculaHistoricoPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__pages_matricula_historico__["a" /* PagesMatriculaHistoricoPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__pages_matricula_historico__["a" /* PagesMatriculaHistoricoPage */]),
             ],
         })
     ], PagesMatriculaHistoricoPageModule);
@@ -74,7 +74,7 @@ var PagesMatriculaHistoricoPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-pages-matricula-historico',template:/*ion-inline-start:"E:\GitHub\sigaa\src\pages\pages-matricula-historico\pages-matricula-historico.html"*/'<!--\n\n  Generated template for the PagesMatriculaHistoricoPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>pages/matricula-historico</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"E:\GitHub\sigaa\src\pages\pages-matricula-historico\pages-matricula-historico.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], PagesMatriculaHistoricoPage);
     return PagesMatriculaHistoricoPage;
 }());

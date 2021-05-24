@@ -51,8 +51,14 @@
 
   "LIST_MASTER_TITLE": "Itens",
 
-  "ITEM_CREATE_TITLE": "Novo Item",
+  "ITEM_CREATE_TITLE": "Turmas 2/2020",
   "ITEM_CREATE_CHOOSE_IMAGE": "Adicionar Imagem",
+  "ADICIONAR_TURMA_INPUTNAME": "Prioridade",
+  "ADICIONAR_TURMA_DESCRIPTION":"Confirmar a Inclusão desta turma no seu pedido de matrícula?",
+  "ADICIONAR_TURMA_TITLE":"Adicionar Turma",
+  "TURMA_REPETIDA_TITLE":"Turma já adicionada!",
+  "TURMA_REPETIDA_DESCRIPTION":"Turma já adicionada!",
+  
 
   "ITEM_NAME_PLACEHOLDER": "Nome",
   "ITEM_ABOUT_PLACEHOLDER": "Sobre",
@@ -65,8 +71,8 @@
 
   "CARDS_TITLE": "Social",
 
-  "SEARCH_TITLE": "Busca",
-  "SEARCH_PLACEHOLDER": "Procure um item da lista, ex: \"Donald Duck\"",
+  "SEARCH_TITLE": "Lista de Oferta 2/2020",
+  "SEARCH_PLACEHOLDER": "ex: \"CÁL\" ou \"CÁLCULO 2\"",
 
   "HISTORY_TITLE": "Histórico"
 }

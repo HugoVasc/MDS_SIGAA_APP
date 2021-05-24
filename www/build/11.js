@@ -29,7 +29,7 @@ var ItemCreatePageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__item_create__["a" /* ItemCreatePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__item_create__["a" /* ItemCreatePage */]),
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__item_create__["a" /* ItemCreatePage */]),
                 __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
             exports: [
@@ -50,9 +50,9 @@ var ItemCreatePageModule = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemCreatePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers__ = __webpack_require__(55);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66,52 +66,49 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ItemCreatePage = /** @class */ (function () {
-    function ItemCreatePage(navCtrl, viewCtrl, formBuilder, camera) {
+    function ItemCreatePage(navCtrl, viewCtrl, turmaProvider, matriculaProvider, translate, alertCtrl, navParams) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.viewCtrl = viewCtrl;
-        this.camera = camera;
-        this.form = formBuilder.group({
-            profilePic: [''],
-            name: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required],
-            about: ['']
-        });
-        // Watch the form for changes, and
-        this.form.valueChanges.subscribe(function (v) {
-            _this.isReadyToSave = _this.form.valid;
+        this.turmaProvider = turmaProvider;
+        this.matriculaProvider = matriculaProvider;
+        this.alertCtrl = alertCtrl;
+        this.currentTurmas = [];
+        this.disciplina = navParams.get('disciplina');
+        this.currentTurmas = this.turmaProvider.search({ disciplina: this.disciplina.codigo });
+        translate.get([
+            "ADICIONAR_TURMA_TITLE",
+            "ADICIONAR_TURMA_DESCRIPTION",
+            "ADICIONAR_TURMA_INPUTNAME",
+            "AJUSTAR_TURMA_TITLE",
+            "AJUSTAR_TURMA_DESCRIPTION",
+            "AJUSTAR_TURMA_DESCRIPTION_DETAIL",
+            "TURMA_REPETIDA_TITLE",
+            "TURMA_REPETIDA_DESCRIPTION",
+            "CANCEL_BUTTON",
+            "CONFIRM_BUTTON"
+        ]).subscribe(function (values) {
+            _this.alertaConfirmarTurma = {
+                title: values.ADICIONAR_TURMA_TITLE,
+                description: values.ADICIONAR_TURMA_DESCRIPTION,
+                descriptionDetail: '',
+                inputName: values.ADICIONAR_TURMA_INPUTNAME,
+                okButton: values.CONFIRM_BUTTON,
+                cancelButton: values.CANCEL_BUTTON
+            };
+            _this.alertaTurmaJaEstaNaMatricula = {
+                title: values.TURMA_REPETIDA_TITLE,
+                description: values.TURMA_REPETIDA_DESCRIPTION,
+                descriptionDetail: '',
+                inputName: '',
+                okButton: values.CONFIRM_BUTTON,
+                cancelButton: values.CANCEL_BUTTON
+            };
         });
     }
     ItemCreatePage.prototype.ionViewDidLoad = function () {
-    };
-    ItemCreatePage.prototype.getPicture = function () {
-        var _this = this;
-        if (__WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */]['installed']()) {
-            this.camera.getPicture({
-                destinationType: this.camera.DestinationType.DATA_URL,
-                targetWidth: 96,
-                targetHeight: 96
-            }).then(function (data) {
-                _this.form.patchValue({ 'profilePic': 'data:image/jpg;base64,' + data });
-            }, function (err) {
-                alert('Unable to take photo');
-            });
-        }
-        else {
-            this.fileInput.nativeElement.click();
-        }
-    };
-    ItemCreatePage.prototype.processWebImage = function (event) {
-        var _this = this;
-        var reader = new FileReader();
-        reader.onload = function (readerEvent) {
-            var imageData = readerEvent.target.result;
-            _this.form.patchValue({ 'profilePic': imageData });
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    };
-    ItemCreatePage.prototype.getProfileImageStyle = function () {
-        return 'url(' + this.form.controls['profilePic'].value + ')';
     };
     /**
      * The user cancelled, so we dismiss without sending data back.
@@ -119,25 +116,90 @@ var ItemCreatePage = /** @class */ (function () {
     ItemCreatePage.prototype.cancel = function () {
         this.viewCtrl.dismiss();
     };
-    /**
-     * The user is done and wants to create the item, so return it
-     * back to the presenter.
-     */
-    ItemCreatePage.prototype.done = function () {
-        if (!this.form.valid) {
-            return;
-        }
-        this.viewCtrl.dismiss(this.form.value);
+    ItemCreatePage.prototype.processarPedidoMatricula = function (turma) {
+        this.confirmarPedidoMatricula(turma);
     };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('fileInput'),
-        __metadata("design:type", Object)
-    ], ItemCreatePage.prototype, "fileInput", void 0);
+    /**
+     * Inserir Matricula
+     */
+    ItemCreatePage.prototype.inserirMatricula = function (turma, status, prioridade) {
+        var matriculaAluno = {
+            turma: turma,
+            status: status,
+            prioridade: prioridade,
+        };
+        if (status === 'Matriculado') {
+            matriculaAluno.status = status;
+        }
+        if (typeof prioridade !== 'undefined') {
+            matriculaAluno.prioridade = prioridade;
+        }
+        this.matriculaProvider.add(matriculaAluno);
+    };
+    /**
+     * Confirmar pedido de matrícula em turma.
+     */
+    ItemCreatePage.prototype.confirmarPedidoMatricula = function (turma) {
+        var _this = this;
+        // verifica se a turma já está na lista de matricula
+        for (var _i = 0, _a = this.matriculaProvider.search(); _i < _a.length; _i++) {
+            var matriculaAluno = _a[_i];
+            if ((matriculaAluno.turma.codigo === turma.codigo) &&
+                (matriculaAluno.turma.disciplina.codigo === turma.disciplina.codigo) &&
+                ((!matriculaAluno.status) || (matriculaAluno.status === "Pedido") || (matriculaAluno.status === "PreMatricula") || (matriculaAluno.status === "Confirmado") || (matriculaAluno.status === "Matriculado"))) {
+                var prompt_1 = this.alertCtrl.create({
+                    title: this.alertaTurmaJaEstaNaMatricula.title,
+                    message: this.alertaTurmaJaEstaNaMatricula.description,
+                    buttons: [
+                        {
+                            text: this.alertaTurmaJaEstaNaMatricula.cancelButton,
+                        },
+                    ]
+                });
+                prompt_1.present();
+                return;
+            }
+        }
+        var prompt = this.alertCtrl.create({
+            title: this.alertaConfirmarTurma.title,
+            message: this.alertaConfirmarTurma.description,
+            inputs: [
+                {
+                    name: 'prioridade',
+                    placeholder: this.alertaConfirmarTurma.inputName
+                },
+            ],
+            buttons: [
+                {
+                    text: this.alertaConfirmarTurma.cancelButton,
+                },
+                {
+                    text: this.alertaConfirmarTurma.okButton,
+                    handler: function (data) {
+                        var prioridade = parseInt(data.prioridade);
+                        if (prioridade)
+                            _this.inserirMatricula(turma, 'Pedido', prioridade);
+                        else
+                            _this.inserirMatricula(turma, 'Pedido', 10);
+                        _this.navCtrl.pop();
+                        _this.navCtrl.parent.select(0);
+                    }
+                }
+            ]
+        });
+        prompt.present();
+    };
     ItemCreatePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-item-create',template:/*ion-inline-start:"E:\GitHub\sigaa\src\pages\item-create\item-create.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ \'ITEM_CREATE_TITLE\' | translate }}</ion-title>\n\n    <ion-buttons start>\n\n      <button ion-button (click)="cancel()">\n\n        <span color="primary" showWhen="ios">\n\n          {{ \'CANCEL_BUTTON\' | translate }}\n\n        </span>\n\n        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button (click)="done()" [disabled]="!isReadyToSave" strong>\n\n        <span color="primary" showWhen="ios">\n\n          {{ \'DONE_BUTTON\' | translate }}\n\n        </span>\n\n        <ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <form *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">\n\n    <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />\n\n    <div class="profile-image-wrapper" (click)="getPicture()">\n\n      <div class="profile-image-placeholder" *ngIf="!this.form.controls.profilePic.value">\n\n        <ion-icon name="add"></ion-icon>\n\n        <div>\n\n          {{ \'ITEM_CREATE_CHOOSE_IMAGE\' | translate }}\n\n        </div>\n\n      </div>\n\n      <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.form.controls.profilePic.value"></div>\n\n    </div>\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-input type="text" placeholder="{{ \'ITEM_NAME_PLACEHOLDER\' | translate }}" formControlName="name"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-input type="text" placeholder="{{ \'ITEM_ABOUT_PLACEHOLDER\' | translate }}" formControlName="about"></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n  </form>\n\n</ion-content>'/*ion-inline-end:"E:\GitHub\sigaa\src\pages\item-create\item-create.html"*/
+            selector: 'page-item-create',template:/*ion-inline-start:"E:\GitHub\sigaa\src\pages\item-create\item-create.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ \'ITEM_CREATE_TITLE\' | translate }}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <button ion-item (click)="processarPedidoMatricula(turma)" *ngFor="let turma of currentTurmas">\n\n      <h2>{{turma.disciplina.nome + \'-\' + turma.codigo}}</h2>\n\n      <p>{{turma.disciplina.codigo}}</p>\n\n      <p *ngFor="let professores of turma.professores">{{\'Professor: \' + professores.nome}}</p>\n\n      <p *ngFor="let dataHora of turma.horariosAula">{{dataHora.dia + \' - \' + dataHora.hora}}</p>\n\n    </button>\n\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"E:\GitHub\sigaa\src\pages\item-create\item-create.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers__["g" /* TurmaProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers__["e" /* MatriculaProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], ItemCreatePage);
     return ItemCreatePage;
 }());

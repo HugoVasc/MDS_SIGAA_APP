@@ -11,7 +11,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { AlunoProvider } from '../mocks/providers/aluno';
 import { MatriculaProvider } from '../mocks/providers/matricula';
-import { Settings, User, Api, Global } from '../providers';
+import { Settings, User, Api, Global, DisciplinaProvider, TurmaProvider } from '../providers';
 import { MyApp } from './app.component';
 
 // The translate loader needs to know where to load i18n files
@@ -60,6 +60,8 @@ export function provideSettings(storage: Storage) {
     Api,
     Global,
     MatriculaProvider,
+    DisciplinaProvider,
+    TurmaProvider,
     AlunoProvider,
     User,
     Camera,

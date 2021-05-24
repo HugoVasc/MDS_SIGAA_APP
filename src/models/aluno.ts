@@ -20,6 +20,6 @@ export class Aluno {
 
 }
 
-export interface Item {
+export interface Aluno {
   [prop: string]: any;
 }

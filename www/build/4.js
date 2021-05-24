@@ -29,7 +29,7 @@ var SearchPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__search__["a" /* SearchPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__search__["a" /* SearchPage */]),
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__search__["a" /* SearchPage */]),
                 __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
             exports: [
@@ -65,38 +65,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var SearchPage = /** @class */ (function () {
-    function SearchPage(navCtrl, navParams, items) {
+    function SearchPage(navCtrl, navParams, disciplinaProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.items = items;
-        this.currentItems = [];
+        this.disciplinaProvider = disciplinaProvider;
+        this.currentDisciplinas = [];
     }
     /**
      * Perform a service for the proper items.
      */
-    SearchPage.prototype.getItems = function (ev) {
+    SearchPage.prototype.getDisciplinas = function (ev) {
         var val = ev.target.value;
-        if (!val || !val.trim()) {
-            this.currentItems = [];
+        if (!val || !val.trim() || val.trim().length < 3) {
+            this.currentDisciplinas = [];
             return;
         }
-        this.currentItems = this.items.query({
-            name: val
+        this.currentDisciplinas = this.disciplinaProvider.search({
+            nome: val
         });
     };
     /**
      * Navigate to the detail page for this item.
      */
-    SearchPage.prototype.openItem = function (item) {
-        this.navCtrl.push('ItemDetailPage', {
-            item: item
+    SearchPage.prototype.openDisciplina = function (disciplina) {
+        this.navCtrl.push('ItemCreatePage', {
+            disciplina: disciplina
         });
     };
     SearchPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-search',template:/*ion-inline-start:"E:\GitHub\sigaa\src\pages\search\search.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ \'SEARCH_TITLE\' | translate }}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ \'SEARCH_PLACEHOLDER\' | translate }}"></ion-searchbar>\n\n  <ion-list>\n\n    <button ion-item (click)="openItem(item)" *ngFor="let item of currentItems">\n\n      <ion-avatar item-start>\n\n        <img [src]="item.profilePic" />\n\n      </ion-avatar>\n\n      <h2>{{item.name}}</h2>\n\n      <p>{{item.about}}</p>\n\n      <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>\n\n    </button>\n\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"E:\GitHub\sigaa\src\pages\search\search.html"*/
+            selector: 'page-search',template:/*ion-inline-start:"E:\GitHub\sigaa\src\pages\search\search.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ \'SEARCH_TITLE\' | translate }}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-searchbar (ionInput)="getDisciplinas($event)" placeholder="{{ \'SEARCH_PLACEHOLDER\' | translate }}"></ion-searchbar>\n\n  <ion-list>\n\n    <button ion-item (click)="openDisciplina(disciplina)" *ngFor="let disciplina of currentDisciplinas">\n\n      <h2>{{disciplina.nome}}</h2>\n\n      <p>{{disciplina.codigo}}</p>\n\n    </button>\n\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"E:\GitHub\sigaa\src\pages\search\search.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers__["d" /* Items */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers__["c" /* DisciplinaProvider */]])
     ], SearchPage);
     return SearchPage;
 }());

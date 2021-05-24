@@ -4,3 +4,6 @@ export { Settings } from './settings/settings';
 export { User } from './user/user';
 export { Global } from './global/global';
 export { AlunoProvider } from '../mocks/providers/aluno';
+export { DisciplinaProvider } from '../mocks/providers/disciplina';
+export { MatriculaProvider } from '../mocks/providers/matricula';
+export { TurmaProvider } from '../mocks/providers/turma';

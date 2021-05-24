@@ -18,6 +18,6 @@ export class MatriculaHistorico {
 
 }
 
-export interface Item {
+export interface MatriculaHistorico {
   [prop: string]: any;
 }

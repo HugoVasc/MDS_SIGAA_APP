@@ -839,7 +839,7 @@ var MatriculaProvider = /** @class */ (function () {
     };
     MatriculaProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers__["c" /* Global */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers__["d" /* Global */]])
     ], MatriculaProvider);
     return MatriculaProvider;
 }());
@@ -937,7 +937,7 @@ function provideSettings(storage) {
      * You can add new settings options at any time. Once the settings are saved,
      * these values will not overwrite the saved values (this can be done manually if desired).
      */
-    return new __WEBPACK_IMPORTED_MODULE_12__providers__["e" /* Settings */](storage, {
+    return new __WEBPACK_IMPORTED_MODULE_12__providers__["f" /* Settings */](storage, {
         option1: true,
         option2: 'Ionitron J. Framework',
         option3: '3',
@@ -962,7 +962,7 @@ var AppModule = /** @class */ (function () {
                         deps: [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]]
                     }
                 }),
-                __WEBPACK_IMPORTED_MODULE_9_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_13__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_9_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_13__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/content/content.module#ContentPageModule', name: 'ContentPage', segment: 'content', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-detail/item-detail.module#ItemDetailPageModule', name: 'ItemDetailPage', segment: 'item-detail', priority: 'low', defaultHistory: [] },
@@ -982,22 +982,24 @@ var AppModule = /** @class */ (function () {
                 }),
                 __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["a" /* IonicStorageModule */].forRoot()
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_9_ionic_angular__["b" /* IonicApp */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_9_ionic_angular__["c" /* IonicApp */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_13__app_component__["a" /* MyApp */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_12__providers__["b" /* Api */],
-                __WEBPACK_IMPORTED_MODULE_12__providers__["c" /* Global */],
+                __WEBPACK_IMPORTED_MODULE_12__providers__["d" /* Global */],
                 __WEBPACK_IMPORTED_MODULE_11__mocks_providers_matricula__["a" /* MatriculaProvider */],
+                __WEBPACK_IMPORTED_MODULE_12__providers__["c" /* DisciplinaProvider */],
+                __WEBPACK_IMPORTED_MODULE_12__providers__["g" /* TurmaProvider */],
                 __WEBPACK_IMPORTED_MODULE_10__mocks_providers_aluno__["a" /* AlunoProvider */],
-                __WEBPACK_IMPORTED_MODULE_12__providers__["f" /* User */],
+                __WEBPACK_IMPORTED_MODULE_12__providers__["h" /* User */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__["a" /* Camera */],
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */],
                 __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */],
-                { provide: __WEBPACK_IMPORTED_MODULE_12__providers__["e" /* Settings */], useFactory: provideSettings, deps: [__WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */]] },
+                { provide: __WEBPACK_IMPORTED_MODULE_12__providers__["f" /* Settings */], useFactory: provideSettings, deps: [__WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */]] },
                 // Keep this to enable Ionic's runtime error handling during development
-                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_9_ionic_angular__["c" /* IonicErrorHandler */] }
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_9_ionic_angular__["d" /* IonicErrorHandler */] }
             ]
         })
     ], AppModule);
@@ -1012,7 +1014,7 @@ var AppModule = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Items; });
+/* unused harmony export Items */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_item__ = __webpack_require__(308);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1585,20 +1587,1104 @@ var MyApp = /** @class */ (function () {
         this.nav.setRoot(page.component);
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* Nav */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* Nav */]) === "function" && _a || Object)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             template: "<ion-menu [content]=\"content\" type=\"overlay\">\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>Pages</ion-title>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content>\n      <ion-list>\n        <button menuClose ion-item *ngFor=\"let p of pages\" (click)=\"openPage(p)\">\n          {{p.title}}\n        </button>\n      </ion-list>\n    </ion-content>\n\n  </ion-menu>\n  <ion-nav #content [root]=\"rootPage\"></ion-nav>"
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__providers__["e" /* Settings */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers__["e" /* Settings */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* Config */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _g || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_6__providers__["f" /* Settings */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["b" /* Config */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_1__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 362:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DisciplinaProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_disciplina__ = __webpack_require__(363);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DisciplinaProvider = /** @class */ (function () {
+    function DisciplinaProvider() {
+        this.disciplinas = [];
+        var disciplinas = [{
+                "codigo": "ENE0026",
+                "nome": "INTRODUÇÃO A ENGENHARIA DE REDES DE COMUNICACÃO",
+                "cargaHorariaTotal": 30,
+                "unidadeAcademica": "ENE"
+            }, {
+                "codigo": "ENE0334",
+                "nome": "COMPUTACAO PARA ENGENHARIA",
+                "cargaHorariaTotal": 60,
+                "unidadeAcademica": "ENE"
+            }, {
+                "codigo": "IFD0171",
+                "nome": "FISICA 1",
+                "cargaHorariaTotal": 60,
+                "unidadeAcademica": "IFD"
+            }, {
+                "codigo": "IFD0173",
+                "nome": "FISICA 1 EXPERIMENTAL",
+                "cargaHorariaTotal": 30,
+                "unidadeAcademica": "IFD"
+            }, {
+                "codigo": "MAT0025",
+                "nome": "CÁLCULO 1",
+                "cargaHorariaTotal": 90,
+                "unidadeAcademica": "MAT"
+            }, {
+                "codigo": "MAT0031",
+                "nome": "INTRODUCAO A ALGEBRA LINEAR",
+                "cargaHorariaTotal": 60,
+                "unidadeAcademica": "MAT"
+            }, {
+                "codigo": "ENE0013",
+                "nome": "ALGORITMOS E ESTRUTURA DE DADOS",
+                "cargaHorariaTotal": 60,
+                "unidadeAcademica": "ENE"
+            }, {
+                "codigo": "EST0023",
+                "nome": "PROBABILIDADE E ESTATÍSTICA",
+                "cargaHorariaTotal": 60,
+                "unidadeAcademica": "EST"
+            }, {
+                "codigo": "IFD0175",
+                "nome": "FISICA 2",
+                "cargaHorariaTotal": 60,
+                "unidadeAcademica": "IFD"
+            }, {
+                "codigo": "MAT0026",
+                "nome": "CÁLCULO 2",
+                "cargaHorariaTotal": 90,
+                "unidadeAcademica": "MAT"
+            }, {
+                "codigo": "ENE0039",
+                "nome": "SISTEMAS DIGITAIS",
+                "cargaHorariaTotal": 60,
+                "unidadeAcademica": "ENE"
+            }, {
+                "codigo": "ENE0040",
+                "nome": "LABORATÓRIO DE SISTEMAS DIGITAIS",
+                "cargaHorariaTotal": 30,
+                "unidadeAcademica": "ENE"
+            }, {
+                "codigo": "ENE0022",
+                "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICAÇÃO 1",
+                "cargaHorariaTotal": 60,
+                "unidadeAcademica": "ENE"
+            }, {
+                "codigo": "ENE0274",
+                "nome": " FUNDAMENTOS DE REDES",
+                "cargaHorariaTotal": 60,
+                "unidadeAcademica": "ENE"
+            }, {
+                "codigo": "IFD0177",
+                "nome": "FISICA 2 EXPERIMENTAL",
+                "cargaHorariaTotal": 60,
+                "unidadeAcademica": "IQD"
+            }, {
+                "codigo": "MAT0027",
+                "nome": "CÁLCULO 3",
+                "cargaHorariaTotal": 90,
+                "unidadeAcademica": "MAT"
+            },
+        ];
+        for (var _i = 0, disciplinas_1 = disciplinas; _i < disciplinas_1.length; _i++) {
+            var disciplina = disciplinas_1[_i];
+            this.disciplinas.push(new __WEBPACK_IMPORTED_MODULE_1__models_disciplina__["a" /* Disciplina */](disciplina));
+        }
+    }
+    DisciplinaProvider.prototype.search = function (params) {
+        var _this = this;
+        if (!params) {
+            return this.disciplinas;
+        }
+        return this.disciplinas.filter(function (disciplina) {
+            for (var key in params) {
+                var field = disciplina[key].toString();
+                if (typeof field == 'string' && _this.removeAccentsLowerCase(field.toLowerCase()).indexOf(_this.removeAccentsLowerCase(params[key]).toLowerCase()) >= 0) {
+                    return disciplina;
+                }
+                else if (field == params[key]) {
+                    return disciplina;
+                }
+            }
+            return null;
+        });
+    };
+    DisciplinaProvider.prototype.get = function (codigo) {
+        for (var _i = 0, _a = this.disciplinas; _i < _a.length; _i++) {
+            var disciplina = _a[_i];
+            if (disciplina.codigo == codigo)
+                return disciplina;
+        }
+    };
+    DisciplinaProvider.prototype.removeAccentsLowerCase = function (str) {
+        var map = {
+            '-': ' ',
+            'a': 'á|à|ã|â|À|Á|Ã|Â',
+            'e': 'é|è|ê|É|È|Ê',
+            'i': 'í|ì|î|Í|Ì|Î',
+            'o': 'ó|ò|ô|õ|Ó|Ò|Ô|Õ',
+            'u': 'ú|ù|û|ü|Ú|Ù|Û|Ü',
+            'c': 'ç|Ç',
+            'n': 'ñ|Ñ'
+        };
+        for (var pattern in map) {
+            str = str.replace(new RegExp(map[pattern], 'g'), pattern);
+        }
+        ;
+        return str;
+    };
+    ;
+    DisciplinaProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], DisciplinaProvider);
+    return DisciplinaProvider;
+}());
+
+//# sourceMappingURL=disciplina.js.map
+
+/***/ }),
+
+/***/ 363:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Disciplina; });
+/**
+ * A generic model that our Master-Detail pages list, create, and delete.
+ *
+ * Change "Item" to the noun your app will use. For example, a "Contact," or a
+ * "Customer," or an "Animal," or something like that.
+ *
+ * The Items service manages creating instances of Item, so go ahead and rename
+ * that something that fits your app as well.
+ */
+var Disciplina = /** @class */ (function () {
+    function Disciplina(fields) {
+        // Quick and dirty extend/assign fields to this model
+        for (var f in fields) {
+            // @ts-ignore
+            this[f] = fields[f];
+        }
+    }
+    return Disciplina;
+}());
+
+//# sourceMappingURL=disciplina.js.map
+
+/***/ }),
+
+/***/ 364:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TurmaProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_turma__ = __webpack_require__(365);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TurmaProvider = /** @class */ (function () {
+    function TurmaProvider() {
+        this.turmas = [];
+        var turmas = [
+            {
+                "codigo": "A",
+                "vagas": 70,
+                "alunosMatriculados": 60,
+                "disciplina": {
+                    "codigo": "MAT0025",
+                    "nome": "CÁLCULO 1",
+                    "cargaHorariaTotal": 90,
+                    "unidadeAcademica": "MAT"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "10:00 às 11:50"
+                    },
+                    {
+                        "dia": "TER",
+                        "hora": "10:00 às 11:50"
+                    },
+                    {
+                        "dia": "QUI",
+                        "hora": "10:00 às 11:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "CELIUS ANTONIO MAGALHAES"
+                    },
+                    {
+                        "nome": "LEANDRO MARTINS CIOLETTI"
+                    }
+                ]
+            },
+            {
+                "codigo": "J",
+                "vagas": 70,
+                "alunosMatriculados": 60,
+                "disciplina": {
+                    "codigo": "MAT0025",
+                    "nome": "CÁLCULO 1",
+                    "cargaHorariaTotal": 90,
+                    "unidadeAcademica": "MAT"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "14:00 às 15:50"
+                    },
+                    {
+                        "dia": "QUA",
+                        "hora": "14:00 às 15:50"
+                    },
+                    {
+                        "dia": "SEX",
+                        "hora": "14:00 às 15:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "WANG QIAOLING"
+                    },
+                ]
+            },
+            {
+                "codigo": "O",
+                "vagas": 70,
+                "alunosMatriculados": 60,
+                "disciplina": {
+                    "codigo": "MAT0025",
+                    "nome": "CÁLCULO 1",
+                    "cargaHorariaTotal": 90,
+                    "unidadeAcademica": "MAT"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "TER",
+                        "hora": "08:00 às 09:50"
+                    },
+                    {
+                        "dia": "QUI",
+                        "hora": "08:00 às 09:50"
+                    },
+                    {
+                        "dia": "SEX",
+                        "hora": "08:00 às 09:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "LINEU DA COSTA ARAUJO NETO"
+                    },
+                ]
+            },
+            {
+                "codigo": "A",
+                "vagas": 66,
+                "alunosMatriculados": 52,
+                "disciplina": {
+                    "codigo": "MAT0031",
+                    "nome": "INTRODUCAO A ALGEBRA LINEAR",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "MAT"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "16:00 às 17:50"
+                    },
+                    {
+                        "dia": "QUA",
+                        "hora": "16:00 às 17:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "PAVEL ZALESSKI"
+                    },
+                ]
+            },
+            {
+                "codigo": "G",
+                "vagas": 66,
+                "alunosMatriculados": 28,
+                "disciplina": {
+                    "codigo": "MAT0031",
+                    "nome": "INTRODUCAO A ALGEBRA LINEAR",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "MAT"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "TER",
+                        "hora": "19:00 às 20:50"
+                    },
+                    {
+                        "dia": "QUI",
+                        "hora": "19:00 às 20:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "ALBERTO MASAYOSHI FARIA OHASHI"
+                    },
+                ]
+            },
+            {
+                "codigo": "A",
+                "vagas": 30,
+                "alunosMatriculados": 28,
+                "disciplina": {
+                    "codigo": "ENE0026",
+                    "nome": "INTRODUÇÃO A ENGENHARIA DE REDES DE COMUNICACÃO",
+                    "cargaHorariaTotal": 30,
+                    "unidadeAcademica": "ENE"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEX",
+                        "hora": "14:00 às 15:50"
+                    },
+                ],
+                "professores": [
+                    {
+                        "nome": "PAULO ROBERTO DE LIRA GONDIM"
+                    }
+                ]
+            },
+            {
+                "codigo": "A",
+                "vagas": 40,
+                "alunosMatriculados": 25,
+                "disciplina": {
+                    "codigo": "ENE0334",
+                    "nome": "COMPUTACAO PARA ENGENHARIA",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "ENE"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "QUA",
+                        "hora": "10:00 às 11:50"
+                    },
+                    {
+                        "dia": "SEX",
+                        "hora": "10:00 às 11:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "DANIEL GUERREIRO E SILVA"
+                    }
+                ]
+            },
+            {
+                "codigo": "B",
+                "vagas": 40,
+                "alunosMatriculados": 25,
+                "disciplina": {
+                    "codigo": "ENE0334",
+                    "nome": "COMPUTACAO PARA ENGENHARIA",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "ENE"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "10:00 às 11:50"
+                    },
+                    {
+                        "dia": "QUA",
+                        "hora": "10:00 às 11:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "VINICIUS PEREIRA GONCALVES"
+                    }
+                ]
+            },
+            {
+                "codigo": "B",
+                "vagas": 30,
+                "alunosMatriculados": 12,
+                "disciplina": {
+                    "codigo": "IFD0171",
+                    "nome": "FISICA 1",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "IFD"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "TER",
+                        "hora": "08:00 às 09:50"
+                    },
+                    {
+                        "dia": "QUI",
+                        "hora": "08:00 às 09:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "CAROLINA MATTE GREGORY"
+                    }
+                ]
+            },
+            {
+                "codigo": "G",
+                "vagas": 60,
+                "alunosMatriculados": 38,
+                "disciplina": {
+                    "codigo": "IFD0171",
+                    "nome": "FISICA 1",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "IFD"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "08:00 às 09:50"
+                    },
+                    {
+                        "dia": "QUA",
+                        "hora": "08:00 às 09:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "DEMETRIO ANTONIO DA SILVA"
+                    }
+                ]
+            },
+            {
+                "codigo": "B",
+                "vagas": 30,
+                "alunosMatriculados": 12,
+                "disciplina": {
+                    "codigo": "IFD0173",
+                    "nome": "FISICA 1 EXPERIMENTAL",
+                    "cargaHorariaTotal": 30,
+                    "unidadeAcademica": "IFD"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "08:00 às 09:50"
+                    },
+                ],
+                "professores": [
+                    {
+                        "nome": "CAROLINA MATTE GREGORY"
+                    }
+                ]
+            },
+            {
+                "codigo": "G",
+                "vagas": 60,
+                "alunosMatriculados": 38,
+                "disciplina": {
+                    "codigo": "IFD0173",
+                    "nome": "FISICA 1 EXPERIMENTAL",
+                    "cargaHorariaTotal": 30,
+                    "unidadeAcademica": "IFD"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEX",
+                        "hora": "08:00 às 09:50"
+                    },
+                ],
+                "professores": [
+                    {
+                        "nome": "DEMETRIO ANTONIO DA SILVA"
+                    }
+                ]
+            },
+            {
+                "codigo": "A",
+                "vagas": 60,
+                "alunosMatriculados": 54,
+                "disciplina": {
+                    "codigo": "IFD0175",
+                    "nome": "FISICA 2",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "IFD"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "10:00 às 11:50"
+                    },
+                    {
+                        "dia": "QUA",
+                        "hora": "10:00 às 11:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "FERNANDO MARQUES CARVALHO"
+                    }
+                ]
+            },
+            {
+                "codigo": "B",
+                "vagas": 80,
+                "alunosMatriculados": 13,
+                "disciplina": {
+                    "codigo": "IFD0175",
+                    "nome": "FISICA 2",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "IFD"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "TER",
+                        "hora": "10:00 às 11:50"
+                    },
+                    {
+                        "dia": "QUI",
+                        "hora": "10:00 às 11:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "ALEXANDRE DODONOV"
+                    }
+                ]
+            },
+            {
+                "codigo": "A",
+                "vagas": 30,
+                "alunosMatriculados": 21,
+                "disciplina": {
+                    "codigo": "ENE0013",
+                    "nome": "ALGORITMOS E ESTRUTURA DE DADOS",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "ENE"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "TER",
+                        "hora": "10:00 às 11:50"
+                    },
+                    {
+                        "dia": "QUI",
+                        "hora": "10:00 às 11:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "VINICIUS PEREIRA GONCALVES"
+                    }
+                ]
+            },
+            {
+                "codigo": "B",
+                "vagas": 30,
+                "alunosMatriculados": 12,
+                "disciplina": {
+                    "codigo": "ENE0013",
+                    "nome": "ALGORITMOS E ESTRUTURA DE DADOS",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "ENE"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "16:00 às 17:50"
+                    },
+                    {
+                        "dia": "QUA",
+                        "hora": "16:00 às 17:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "DANIEL GUERREIRO E SILVA"
+                    }
+                ]
+            },
+            {
+                "codigo": "A",
+                "vagas": 60,
+                "alunosMatriculados": 54,
+                "disciplina": {
+                    "codigo": "ENE0039",
+                    "nome": "SISTEMAS DIGITAIS",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "ENE"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "TER",
+                        "hora": "16:00 às 17:50"
+                    },
+                    {
+                        "dia": "QUI",
+                        "hora": "16:00 às 17:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "EDUARDO PEIXOTO FERNANDES DA SILVA"
+                    }
+                ]
+            },
+            {
+                "codigo": "B",
+                "vagas": 60,
+                "alunosMatriculados": 45,
+                "disciplina": {
+                    "codigo": "ENE0039",
+                    "nome": "SISTEMAS DIGITAIS",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "ENE"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "TER",
+                        "hora": "14:00 às 15:50"
+                    },
+                    {
+                        "dia": "QUI",
+                        "hora": "14:00 às 15:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "EDSON MINTSU HUNG"
+                    }
+                ]
+            },
+            {
+                "codigo": "A",
+                "vagas": 20,
+                "alunosMatriculados": 16,
+                "disciplina": {
+                    "codigo": "ENE0040",
+                    "nome": "LABORATÓRIO DE SISTEMAS DIGITAIS",
+                    "cargaHorariaTotal": 30,
+                    "unidadeAcademica": "ENE"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "10:00 às 11:50"
+                    },
+                ],
+                "professores": [
+                    {
+                        "nome": "LUIS FERNANDO RAMOS MOLINARO"
+                    }
+                ]
+            },
+            {
+                "codigo": "B",
+                "vagas": 20,
+                "alunosMatriculados": 0,
+                "disciplina": {
+                    "codigo": "ENE0040",
+                    "nome": "LABORATÓRIO DE SISTEMAS DIGITAIS",
+                    "cargaHorariaTotal": 30,
+                    "unidadeAcademica": "ENE"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "14:00 às 15:50"
+                    },
+                ],
+                "professores": [
+                    {
+                        "nome": "LUIS FERNANDO RAMOS MOLINARO"
+                    }
+                ]
+            },
+            {
+                "codigo": "C",
+                "vagas": 20,
+                "alunosMatriculados": 0,
+                "disciplina": {
+                    "codigo": "ENE0040",
+                    "nome": "LABORATÓRIO DE SISTEMAS DIGITAIS",
+                    "cargaHorariaTotal": 30,
+                    "unidadeAcademica": "ENE"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEX",
+                        "hora": "08:00 às 09:50"
+                    },
+                ],
+                "professores": [
+                    {
+                        "nome": "LUIS FERNANDO RAMOS MOLINARO"
+                    }
+                ]
+            },
+            {
+                "codigo": "A",
+                "vagas": 150,
+                "alunosMatriculados": 130,
+                "disciplina": {
+                    "codigo": "MAT0026",
+                    "nome": "CÁLCULO 2",
+                    "cargaHorariaTotal": 90,
+                    "unidadeAcademica": "MAT"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "10:00 às 11:50"
+                    },
+                    {
+                        "dia": "TER",
+                        "hora": "10:00 às 11:50"
+                    },
+                    {
+                        "dia": "QUI",
+                        "hora": "10:00 às 11:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "KELLCIO OLIVEIRA ARAUJO"
+                    }
+                ]
+            },
+            {
+                "codigo": "G",
+                "vagas": 150,
+                "alunosMatriculados": 104,
+                "disciplina": {
+                    "codigo": "MAT0026",
+                    "nome": "CÁLCULO 2",
+                    "cargaHorariaTotal": 90,
+                    "unidadeAcademica": "MAT"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "08:00 às 09:50"
+                    },
+                    {
+                        "dia": "TER",
+                        "hora": "08:00 às 09:50"
+                    },
+                    {
+                        "dia": "QUI",
+                        "hora": "08:00 às 09:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "ANGEL RODOLFO BAIGORRI"
+                    }
+                ]
+            },
+            {
+                "codigo": "A",
+                "vagas": 60,
+                "alunosMatriculados": 47,
+                "disciplina": {
+                    "codigo": "EST0023",
+                    "nome": "PROBABILIDADE E ESTATÍSTICA",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "EST"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "08:00 às 09:50"
+                    },
+                    {
+                        "dia": "QUA",
+                        "hora": "08:00 às 09:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "LEANDRO TAVARES CORREIA"
+                    }
+                ]
+            },
+            {
+                "codigo": "B",
+                "vagas": 60,
+                "alunosMatriculados": 13,
+                "disciplina": {
+                    "codigo": "EST0023",
+                    "nome": "PROBABILIDADE E ESTATÍSTICA",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "EST"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "10:00 às 11:50"
+                    },
+                    {
+                        "dia": "QUA",
+                        "hora": "10:00 às 11:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "HELTON SAULO BEZERRA DOS SANTO"
+                    }
+                ]
+            },
+            {
+                "codigo": "A",
+                "vagas": 20,
+                "alunosMatriculados": 20,
+                "disciplina": {
+                    "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICAÇÃO 1",
+                    "codigo": "ENE0022",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "ENE"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "10:00 às 11:50"
+                    },
+                    {
+                        "dia": "QUA",
+                        "hora": "10:00 às 11:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "UGO SILVA DIAS"
+                    }
+                ]
+            },
+            {
+                "codigo": "A",
+                "vagas": 40,
+                "alunosMatriculados": 0,
+                "disciplina": {
+                    "nome": "FUNDAMENTOS DE REDES",
+                    "codigo": "ENE0274",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "ENE"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "08:00 às 09:50"
+                    },
+                    {
+                        "dia": "QUA",
+                        "hora": "08:00 às 09:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "FABIO LUCIO LOPES DE MENDONCA"
+                    }
+                ]
+            },
+            {
+                "codigo": "C",
+                "vagas": 20,
+                "alunosMatriculados": 0,
+                "disciplina": {
+                    "nome": "FISICA 2 EXPERIMENTAL",
+                    "codigo": "IFD0177",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "IFD"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "TER",
+                        "hora": "14:00 às 15:50"
+                    },
+                    {
+                        "dia": "TER",
+                        "hora": "16:00 às 17:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "FERNANDO LESSA CARNEIRO"
+                    }
+                ]
+            },
+            {
+                "codigo": "D",
+                "vagas": 20,
+                "alunosMatriculados": 0,
+                "disciplina": {
+                    "nome": "FISICA 2 EXPERIMENTAL",
+                    "codigo": "IFD0177",
+                    "cargaHorariaTotal": 60,
+                    "unidadeAcademica": "IFD"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "00:00 às 09:50"
+                    },
+                    {
+                        "dia": "SEG",
+                        "hora": "10:00 às 11:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "PEDRO AUGUSTO MATOS RODRIGUES"
+                    }
+                ]
+            },
+            {
+                "codigo": "A",
+                "vagas": 65,
+                "alunosMatriculados": 0,
+                "disciplina": {
+                    "nome": "CÁLCULO 3",
+                    "codigo": "MAT0027",
+                    "cargaHorariaTotal": 90,
+                    "unidadeAcademica": "MAT"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "SEG",
+                        "hora": "14:00 às 15:50"
+                    },
+                    {
+                        "dia": "QUA",
+                        "hora": "14:00 às 15:50"
+                    },
+                    {
+                        "dia": "SEX",
+                        "hora": "14:00 às 15:50"
+                    },
+                ],
+                "professores": [
+                    {
+                        "nome": "CLAUS AKIRA MATSUSHIGUE"
+                    }
+                ]
+            },
+            {
+                "codigo": "J",
+                "vagas": 90,
+                "alunosMatriculados": 0,
+                "disciplina": {
+                    "nome": "CÁLCULO 3",
+                    "codigo": "MAT0027",
+                    "cargaHorariaTotal": 90,
+                    "unidadeAcademica": "MAT"
+                },
+                "horariosAula": [
+                    {
+                        "dia": "TER",
+                        "hora": "08:00 às 09:50"
+                    },
+                    {
+                        "dia": "QUI",
+                        "hora": "08:00 às 09:50"
+                    },
+                    {
+                        "dia": "SEX",
+                        "hora": "08:00 às 09:50"
+                    }
+                ],
+                "professores": [
+                    {
+                        "nome": "RADERSON RODRIGUES DA SILVA"
+                    }
+                ]
+            },
+        ];
+        for (var _i = 0, turmas_1 = turmas; _i < turmas_1.length; _i++) {
+            var turma = turmas_1[_i];
+            this.turmas.push(new __WEBPACK_IMPORTED_MODULE_1__models_turma__["a" /* Turma */](turma));
+        }
+    }
+    TurmaProvider.prototype.search = function (params) {
+        if (!params) {
+            return this.turmas;
+        }
+        if ("disciplina" in params) {
+            return this.turmas.filter(function (turma) {
+                if (turma.disciplina.codigo == params.disciplina) {
+                    return turma;
+                }
+                return null;
+            });
+        }
+    };
+    TurmaProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], TurmaProvider);
+    return TurmaProvider;
+}());
+
+//# sourceMappingURL=turma.js.map
+
+/***/ }),
+
+/***/ 365:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Turma; });
+/**
+ * A generic model that our Master-Detail pages list, create, and delete.
+ *
+ * Change "Item" to the noun your app will use. For example, a "Contact," or a
+ * "Customer," or an "Animal," or something like that.
+ *
+ * The Items service manages creating instances of Item, so go ahead and rename
+ * that something that fits your app as well.
+ */
+var Turma = /** @class */ (function () {
+    function Turma(fields) {
+        // Quick and dirty extend/assign fields to this model
+        for (var f in fields) {
+            // @ts-ignore
+            this[f] = fields[f];
+        }
+    }
+    return Turma;
+}());
+
+//# sourceMappingURL=turma.js.map
 
 /***/ }),
 
@@ -1609,15 +2695,24 @@ var MyApp = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_api__ = __webpack_require__(183);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__api_api__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mocks_providers_items__ = __webpack_require__(307);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_1__mocks_providers_items__["a"]; });
+/* unused harmony reexport Items */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_settings__ = __webpack_require__(309);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_2__settings_settings__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_2__settings_settings__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_user__ = __webpack_require__(310);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__user_user__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_3__user_user__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__global_global__ = __webpack_require__(312);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_4__global_global__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_4__global_global__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mocks_providers_aluno__ = __webpack_require__(184);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__mocks_providers_aluno__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mocks_providers_disciplina__ = __webpack_require__(362);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_6__mocks_providers_disciplina__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__mocks_providers_matricula__ = __webpack_require__(224);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_7__mocks_providers_matricula__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__mocks_providers_turma__ = __webpack_require__(364);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_8__mocks_providers_turma__["a"]; });
+
+
+
 
 
 

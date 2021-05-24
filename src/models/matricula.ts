@@ -22,6 +22,6 @@ export class Matricula {
 
 }
 
-export interface Item {
+export interface Matricula {
   [prop: string]: any;
 }

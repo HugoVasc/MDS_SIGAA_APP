@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
-import { Aluno } from '../../models/aluno';
 
-import { Item } from '../../models/item';
+import { Aluno } from '../../models/aluno';
 import { MatriculaAluno } from '../../models/matriculaAluno';
 import { AlunoProvider } from '../../providers';
 import { MatriculaProvider } from '../../mocks/providers/matricula';

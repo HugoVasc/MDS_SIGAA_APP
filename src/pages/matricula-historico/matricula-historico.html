@@ -10,6 +10,13 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let matricula of currentMatriculasHistorico">
+      <button ion-item>
+        <h2>{{matricula.turma.disciplina.codigo + '-' + matricula.turma.disciplina.nome + '-' + matricula.turma.codigo}}</h2>
+        <p>{{matricula.status + ' - ' + matricula.dataHora}}</p>
+      </button>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

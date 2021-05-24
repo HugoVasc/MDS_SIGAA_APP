@@ -31,6 +31,6 @@ export class Turma {
 
 }
 
-export interface Item {
+export interface Turma {
   [prop: string]: any;
 }

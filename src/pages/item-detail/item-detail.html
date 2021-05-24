@@ -10,9 +10,8 @@
 <ion-content>
   <div class="item-detail" padding>
     <h2>{{matricula.turma.disciplina.codigo + '-' + matricula.turma.disciplina.nome + '-' + matricula.turma.codigo}}</h2>
-    <p>{{'Professor: ' + matricula.turma.professores[0].nome}}</p>
-    <p>{{matricula.turma.horariosAula[0].dia + ' : ' + matricula.turma.horariosAula[0].hora}}</p>
-    <p>{{matricula.turma.horariosAula[1].dia + ' : ' + matricula.turma.horariosAula[1].hora}}</p>
+    <p *ngFor="let professores of matricula.turma.professores">{{'Professor: ' + professores.nome}}</p>
+    <p *ngFor="let dataHora of matricula.turma.horariosAula">{{dataHora.dia + ' - ' + dataHora.hora}}</p>
     <p>{{'Status: ' + matricula.status}}</p>
   </div>
 </ion-content>

@@ -29,7 +29,7 @@ var ItemDetailPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__item_detail__["a" /* ItemDetailPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__item_detail__["a" /* ItemDetailPage */]),
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__item_detail__["a" /* ItemDetailPage */]),
                 __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
             exports: [
@@ -76,11 +76,11 @@ var ItemDetailPage = /** @class */ (function () {
     };
     ItemDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-item-detail',template:/*ion-inline-start:"E:\GitHub\sigaa\src\pages\item-detail\item-detail.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ matricula.turma.disciplina.codigo }}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <div class="item-detail" padding>\n\n    <h2>{{matricula.turma.disciplina.codigo + \'-\' + matricula.turma.disciplina.nome + \'-\' + matricula.turma.codigo}}</h2>\n\n    <p>{{\'Professor: \' + matricula.turma.professores[0].nome}}</p>\n\n    <p>{{matricula.turma.horariosAula[0].dia + \' : \' + matricula.turma.horariosAula[0].hora}}</p>\n\n    <p>{{matricula.turma.horariosAula[1].dia + \' : \' + matricula.turma.horariosAula[1].hora}}</p>\n\n    <p>{{\'Status: \' + matricula.status}}</p>\n\n  </div>\n\n</ion-content>\n\n\n\n<ion-footer padding>\n\n  <button *ngIf="(matricula.status == \'PreMatricula\' || matricula.status == \'Confirmado\')" ion-button icon-left color="danger" (click)="alterarStatus(\'Retirado\')">\n\n    <ion-icon name="close-circle"></ion-icon>\n\n    {{\'DELETE_BUTTON\' | translate}}\n\n  </button>\n\n  <button *ngIf="(matricula.status == \'PreMatricula\' || matricula.status == \'Retirado\')" ion-button icon-left color="secondary" (click)="alterarStatus(\'Confirmado\')">\n\n    <ion-icon name="checkmark-circle"></ion-icon>\n\n    {{\'CONFIRM_BUTTON\' | translate}}\n\n  </button>\n\n</ion-footer>'/*ion-inline-end:"E:\GitHub\sigaa\src\pages\item-detail\item-detail.html"*/
+            selector: 'page-item-detail',template:/*ion-inline-start:"E:\GitHub\sigaa\src\pages\item-detail\item-detail.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ matricula.turma.disciplina.codigo }}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <div class="item-detail" padding>\n\n    <h2>{{matricula.turma.disciplina.codigo + \'-\' + matricula.turma.disciplina.nome + \'-\' + matricula.turma.codigo}}</h2>\n\n    <p *ngFor="let professores of matricula.turma.professores">{{\'Professor: \' + professores.nome}}</p>\n\n    <p *ngFor="let dataHora of matricula.turma.horariosAula">{{dataHora.dia + \' - \' + dataHora.hora}}</p>\n\n    <p>{{\'Status: \' + matricula.status}}</p>\n\n  </div>\n\n</ion-content>\n\n\n\n<ion-footer padding>\n\n  <button *ngIf="(matricula.status == \'PreMatricula\' || matricula.status == \'Confirmado\')" ion-button icon-left color="danger" (click)="alterarStatus(\'Retirado\')">\n\n    <ion-icon name="close-circle"></ion-icon>\n\n    {{\'DELETE_BUTTON\' | translate}}\n\n  </button>\n\n  <button *ngIf="(matricula.status == \'PreMatricula\' || matricula.status == \'Retirado\')" ion-button icon-left color="secondary" (click)="alterarStatus(\'Confirmado\')">\n\n    <ion-icon name="checkmark-circle"></ion-icon>\n\n    {{\'CONFIRM_BUTTON\' | translate}}\n\n  </button>\n\n</ion-footer>'/*ion-inline-end:"E:\GitHub\sigaa\src\pages\item-detail\item-detail.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__mocks_providers_matricula__["a" /* MatriculaProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], ItemDetailPage);
     return ItemDetailPage;
 }());

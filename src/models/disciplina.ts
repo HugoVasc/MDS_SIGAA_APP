@@ -22,6 +22,6 @@ export class Disciplina {
 
 }
 
-export interface Item {
+export interface Disciplina {
   [prop: string]: any;
 }
