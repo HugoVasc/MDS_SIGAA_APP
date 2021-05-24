@@ -43,4 +43,8 @@ export class ListMasterPage {
   confirmarMatricula(){
     this.matriculaProvider.confirmarMatricula();
   }
+
+  exit() {
+    this.navCtrl.push('LoginPage')
+  }
 }
